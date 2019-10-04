@@ -1,0 +1,83 @@
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+
+class monthlypayment
+{
+private: 
+	double payment;
+		 double loan;
+		 double interest;
+		 double total;
+		 double monthly;
+		 double term;
+		 double rate;
+		 int years;
+
+public: 
+	void setLoan(double);
+		//void setRate(double);
+		//void setYears(int);
+		//double getMonthlyPayment(double);
+		//double getTotalpay();
+
+
+};
+
+void monthlypayment :: setLoan(double lo)
+{
+	loan = lo;
+}
+
+
+/*void monthlypayment::setRate(double r)
+{
+	rate = r;
+}*/
+	
+/*void monthlypayment::setYears(int y)
+{
+	years = y;
+}*/
+
+/*double monthlypayment::getMonthlyPayment(double M)
+{
+	monthly = (loan * ((interest / 100) / 12) *term) / (term - 1);
+	return monthly;
+}*/
+
+/*double monthlypayment:: getTotalpay()
+{
+	total = (getMonthlyPayment()  *(years * 12));
+	return total;
+}*/
+
+int main()
+{ 
+	
+
+	monthlypayment box;
+	double term,rate, years;
+	double loann;
+	float annual;
+	
+	cout << "Enter the amount of the loan :";
+	cin>>loann;
+	box.setLoan(loann);
+
+
+	//double i, p;
+	cout << "Loan ammount is:" << setprecision(2) << fixed << box.setLoan() << endl;
+
+		//cout << "Enter annual interest rate in decimal form(example .075 means 7.5%) :";
+	   //cin >> annual;
+
+	   //cout << "Enter the length of the loan in years :";
+	   //cin >> years;
+		
+	system("pause");
+    return 0;
+}
