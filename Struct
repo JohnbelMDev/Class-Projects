@@ -1,0 +1,81 @@
+// ConsoleApplication24.cpp : Defines the entry point for the console application.
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+
+struct Moviedata {
+
+	string title;
+	string director;
+	int yearReleased;
+	double runningTime;
+
+
+};
+int populateIntegerArray(Moviedata *arrayPtr, int arraySize);
+void displayIntegerArray(Moviedata *arrayPtr, int arraySize);
+
+
+
+int main()
+{
+	//Moviedata *movies;
+	Moviedata *ptr = NULL;
+	int size;
+	cout << "Enter desired array size:";
+	cin >> size;
+	ptr = new Moviedata [size];
+	populateIntegerArray(ptr, size);
+	displayIntegerArray(ptr, size);
+
+	system("pause");
+    return 0;
+}
+
+
+int populateIntegerArray(Moviedata *arrayPtr, int arraySize)
+
+{
+	//	double *arrayPtr;
+	//int input;
+	int index = 0;
+	for (int index = 0; index <arraySize; index++)
+	{
+		//cout << "Enter value for array element" << " " 
+		//in >> arrayPtr[index];
+		//arrayPtr[index] = index;
+
+		cout << "Enter Title" << "  " << (index + 0) << ":";
+		cin >> arrayPtr[index].title;
+		cout << "Enter Director" << " " << (index + 1) << ":";
+		cin >> arrayPtr[index].director;
+		cout << "Enter year Released" << " " << (index + 2) << ":";
+		cin >> arrayPtr[index].yearReleased;
+		cout << "Enter running time (minutes)" << " " << (index + 3) << ":";
+		cin >> arrayPtr[index].runningTime;
+
+
+
+	}
+	return index;
+}
+
+void displayIntegerArray(Moviedata *arrayPtr, int arraySize)
+{
+	for (int index = 0; index < arraySize; index++)
+	{
+		cout << &arrayPtr[index] << ":" << setw(4) << endl;
+		cout << "Title"<<setw(4)<<":" << arrayPtr[index].title << endl;
+		cout << "Director"<<setw(4) <<":"<<arrayPtr[index].director << endl;
+		cout << "Released"<<setw(4)<<":" << arrayPtr[index].yearReleased << endl;
+		cout<< "Running time"<<setw(4)<<":"<<arrayPtr[index].runningTime;
+
+
+
+	}
+
+}
