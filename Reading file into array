@@ -1,0 +1,155 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+#include <stdlib.h>
+#include <string>
+double minimumnumber(int[], int);
+double maximumNumber(int[], int);
+double gettotal(int[], int);
+
+using namespace std;
+
+int main()
+{
+	ifstream inputfile;
+	ofstream outputfile;
+	string name;
+	string filename;
+	const int ARRAY_SIZE = 12;
+	int numbers[ARRAY_SIZE];
+	
+
+
+	cout << " Enter a file name for input:";
+	getline(cin, filename);
+	//cout << ARRAY_SIZE << " " <<"read from input file" << endl;
+	//cout<<" Enter a file name for output:";
+	//getline (cin, name);
+
+	inputfile.open(filename.c_str());
+	//  minimumnumber();
+	//outputfile.open (name.c_str() );
+
+
+	if (!inputfile.good())
+	{
+		cout << "Error opening file";
+		exit(0);
+	}
+	int count = 0;
+	while (inputfile >> numbers[count]) { //inputfile deals with the numbers of the file
+		count++;
+
+	}
+	cout <<count<<"Were read from the file";
+	double lowest;
+	//cout<<" The numbers are:";
+	lowest = minimumnumber(numbers, count);
+	//cout<<lowest;
+
+	cout << "The lowest number:" << lowest << endl;
+
+	double highest;
+	highest = maximumNumber(numbers, count);
+	cout << "The biggest number:" << highest << endl;
+
+	double totall;
+	totall = gettotal(numbers, count);
+	cout << "Total numbers:" << totall << endl;
+
+	double average;
+
+	average = totall / (count);
+	cout << "Average numbers is " << average << endl;
+
+	inputfile.close();
+
+
+
+
+	//cout<<line<<"\n";
+
+	//min = line;
+
+
+	/*if (line < min)
+	{
+	min = line;
+	cout<<min<<endl;
+
+	}
+
+	if (line > max)
+	{
+	max = line;
+	cout<<max<<endl;
+
+	}
+
+	}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	system("PAUSE");
+	return 0;
+}
+
+
+
+
+double minimumnumber(int arr[], int size) {
+
+
+	int index = 0;
+	int min;
+	min = arr[0];
+	for (; index <size; index++) {
+		if (arr[index] < min)
+			min = arr[index];
+		//min = [index];
+	}
+	return min;
+}
+
+
+double maximumNumber(int arr[], int size)
+{
+	int max = arr[0];
+
+	for (int index = 0; index < size; index++) {
+		if (arr[index] > max)
+
+			max = arr[index];
+	}
+
+
+	return max;
+
+}
+
+double gettotal(int arr[], int numbers)
+
+{
+	int total =0;
+
+	for (int index = 0; index<numbers; index++)
+		
+
+		total += arr[index];
+
+	//return total;
+	return total;
+}
+
